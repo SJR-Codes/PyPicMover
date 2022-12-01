@@ -10,7 +10,7 @@ from view_log import Ui_Form as Log_Form
 
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
-from PyQt5.QtGui import QIcon, QPixmap
+from PyQt5.QtGui import QPixmap
 
 class LogWindow(qtw.QWidget):
     def __init__(self, *args, **kwargs):
@@ -32,7 +32,7 @@ class LogWindow(qtw.QWidget):
             self.ui.img_view.width(),
             self.ui.img_view.height(),
             qtc.Qt.AspectRatioMode.KeepAspectRatio,
-            qtc.Qt.SmoothTransformation
+            qtc.Qt.TransformationMode.SmoothTransformation
         )
         self.ui.img_view.setPixmap(scaledPixmap)
 
