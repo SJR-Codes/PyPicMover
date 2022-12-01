@@ -12,11 +12,10 @@ from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
 
 class LogWindow(qtw.QWidget):
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
-        self.ui = Log_Form()
+        
+        self.ui = Log_Form() #use qt designed form
         self.ui.setupUi(self)
         #close button function
         self.ui.btnClose.clicked.connect(self.appClose)
@@ -25,7 +24,6 @@ class LogWindow(qtw.QWidget):
         self.close()
 
 class MainWindow(qtw.QWidget):
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -39,18 +37,18 @@ class MainWindow(qtw.QWidget):
         self.ui.select_src.clicked.connect(self.selectSource)
         self.ui.select_dst.clicked.connect(self.selectDest)
 
-        #text input changes
+        #text input changes sets form dirty
         self.ui.source_folder.textChanged.connect(self.valuesChanged)
         self.ui.dest_folder.textChanged.connect(self.valuesChanged)
 
         #close button function
         self.ui.btnClose.clicked.connect(self.appClose)
-
+        #open log view widget/window button function
         self.ui.btnViewLog.clicked.connect(self.showLog)
 
     def selectSource(self):
         self.folderPathSource = qtw.QFileDialog.getExistingDirectory(self, 'Select Folder')
-        #qtw.QMessageBox.information(self, 'Succes', str(folderPath))
+        #qtw.QMessageBox.information(self, 'Success', str(folderPath))
         self.ui.source_folder.setPlainText(self.folderPathSource)
 
     def selectDest(self):
