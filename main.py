@@ -10,6 +10,7 @@ from view_log import Ui_Form as Log_Form
 
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
+from PyQt5.QtGui import QIcon, QPixmap
 
 class LogWindow(qtw.QWidget):
     def __init__(self, *args, **kwargs):
@@ -17,8 +18,26 @@ class LogWindow(qtw.QWidget):
         
         self.ui = Log_Form() #use qt designed form
         self.ui.setupUi(self)
+
+        self.ui.select_src.clicked.connect(self.selectImage)
+
         #close button function
         self.ui.btnClose.clicked.connect(self.appClose)
+
+    def selectImage(self):
+        self.imgSource = qtw.QFileDialog.getOpenFileName(self,'Single File','','*.png')
+        self.ui.img_source.setPlainText(self.imgSource[0])
+        pixmap = QPixmap(self.imgSource[0])
+        scaledPixmap = pixmap.scaled(
+            self.ui.img_view.width(),
+            self.ui.img_view.height(),
+            qtc.Qt.AspectRatioMode.KeepAspectRatio,
+            qtc.Qt.SmoothTransformation
+        )
+        self.ui.img_view.setPixmap(scaledPixmap)
+
+        # Optional, resize window to image size
+        #self.resize(pixmap.width(),pixmap.height())
 
     def appClose(self):
         self.close()
