@@ -23,6 +23,9 @@ class Ui_Form(object):
         font.setWeight(75)
         self.label.setFont(font)
         self.label.setObjectName("label")
+        self.btnClose = QtWidgets.QPushButton(Form)
+        self.btnClose.setGeometry(QtCore.QRect(160, 170, 75, 23))
+        self.btnClose.setObjectName("btnClose")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -31,3 +34,4 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "Stuff here..."))
+        self.btnClose.setText(_translate("Form", "Close"))
