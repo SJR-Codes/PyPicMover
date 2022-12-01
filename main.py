@@ -5,8 +5,8 @@
 * Created by Samu Reinikainen
 """
 
-from main_form import Ui_Form
-from view_log import Ui_Form as Log_Form
+from ui_main_form import Ui_Form as Main_Form
+from ui_view_log import Ui_Form as Log_Form
 
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
@@ -49,7 +49,7 @@ class MainWindow(qtw.QWidget):
         self.dirty = False
         self.logWindow = None  # No external window yet.
 
-        self.ui = Ui_Form()
+        self.ui = Main_Form()
         self.ui.setupUi(self)
         
         #select buttons for directory select functions
