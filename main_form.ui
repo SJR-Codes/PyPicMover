@@ -48,6 +48,12 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAsNeeded</enum>
+   </property>
   </widget>
   <widget class="QPlainTextEdit" name="dest_folder">
    <property name="geometry">
@@ -63,6 +69,9 @@
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -97,7 +106,7 @@
      <x>260</x>
      <y>50</y>
      <width>51</width>
-     <height>28</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -110,7 +119,7 @@
      <x>550</x>
      <y>50</y>
      <width>51</width>
-     <height>28</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
