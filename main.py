@@ -15,12 +15,18 @@ class MainWindow(qtw.QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        self.dirty = False
+
         self.ui = Ui_Form()
         self.ui.setupUi(self)
         
         #select buttons for directory select functions
         self.ui.select_src.clicked.connect(self.selectSource)
         self.ui.select_dst.clicked.connect(self.selectDest)
+
+        #text input changes
+        self.ui.source_folder.textChanged.connect(self.valuesChanged)
+        self.ui.dest_folder.textChanged.connect(self.valuesChanged)
 
         #close button function
         self.ui.btnClose.clicked.connect(self.appClose)
@@ -34,8 +40,27 @@ class MainWindow(qtw.QWidget):
         self.folderPathDest = qtw.QFileDialog.getExistingDirectory(self, 'Select Folder')
         self.ui.dest_folder.setPlainText(self.folderPathDest)
 
+    def valuesChanged(self):
+        self.dirty = True
+
     def appClose(self):
-        self.close()
+        ok = True
+
+        if self.dirty:
+            dlg = qtw.QMessageBox(self)
+            dlg.setWindowTitle("Unsaved changes!")
+            dlg.setText("Really close? Unsaved changes will be lost!")
+            dlg.setStandardButtons(qtw.QMessageBox.Yes | qtw.QMessageBox.No)
+            dlg.setIcon(qtw.QMessageBox.Question)
+            buttonClicked = dlg.exec()
+
+            if buttonClicked == qtw.QMessageBox.Yes:
+                ok = True
+            else:
+                ok = False
+
+        if ok:
+            self.close()
 
 
 
