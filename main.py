@@ -23,7 +23,7 @@ class MainWindow(qtw.QWidget):
 
     def selectSource(self):
         folderPath = qtw.QFileDialog.getExistingDirectory(self, 'Select Folder')
-        qtw.QMessageBox.Information(self, 'Succes', str(folderPath))
+        qtw.QMessageBox.information(self, 'Succes', str(folderPath))
         self.ui.source_folder.text = folderPath
 
     def selectDest(self):
