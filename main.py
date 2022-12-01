@@ -17,9 +17,13 @@ class MainWindow(qtw.QWidget):
 
         self.ui = Ui_Form()
         self.ui.setupUi(self)
-
+        
+        #select buttons for directory select functions
         self.ui.select_src.clicked.connect(self.selectSource)
         self.ui.select_dst.clicked.connect(self.selectDest)
+
+        #close button function
+        self.ui.btnClose.clicked.connect(self.appClose)
 
     def selectSource(self):
         self.folderPathSource = qtw.QFileDialog.getExistingDirectory(self, 'Select Folder')
@@ -29,6 +33,9 @@ class MainWindow(qtw.QWidget):
     def selectDest(self):
         self.folderPathDest = qtw.QFileDialog.getExistingDirectory(self, 'Select Folder')
         self.ui.dest_folder.setPlainText(self.folderPathDest)
+
+    def appClose(self):
+        self.close()
 
 
 
