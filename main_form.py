@@ -63,6 +63,9 @@ class Ui_Form(object):
         self.btnClose.setFont(font)
         self.btnClose.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btnClose.setObjectName("btnClose")
+        self.btnViewLog = QtWidgets.QPushButton(Form)
+        self.btnViewLog.setGeometry(QtCore.QRect(10, 10, 75, 23))
+        self.btnViewLog.setObjectName("btnViewLog")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -77,3 +80,4 @@ class Ui_Form(object):
         self.select_dst.setText(_translate("Form", "Select"))
         self.label_4.setText(_translate("Form", "--->"))
         self.btnClose.setText(_translate("Form", "Close"))
+        self.btnViewLog.setText(_translate("Form", "View Log"))

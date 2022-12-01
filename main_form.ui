@@ -164,6 +164,19 @@
     <string>Close</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="btnViewLog">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>View Log</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
