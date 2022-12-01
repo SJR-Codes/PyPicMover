@@ -22,13 +22,13 @@ class MainWindow(qtw.QWidget):
         self.ui.select_dst.clicked.connect(self.selectDest)
 
     def selectSource(self):
-        folderPath = qtw.QFileDialog.getExistingDirectory(self, 'Select Folder')
-        qtw.QMessageBox.information(self, 'Succes', str(folderPath))
-        self.ui.source_folder.text = folderPath
+        self.folderPathSource = qtw.QFileDialog.getExistingDirectory(self, 'Select Folder')
+        #qtw.QMessageBox.information(self, 'Succes', str(folderPath))
+        self.ui.source_folder.setPlainText(self.folderPathSource)
 
     def selectDest(self):
-        folderPath = qtw.QFileDialog.getExistingDirectory(self, 'Select Folder')
-        self.ui.source_dest.text = folderPath
+        self.folderPathDest = qtw.QFileDialog.getExistingDirectory(self, 'Select Folder')
+        self.ui.dest_folder.setPlainText(self.folderPathDest)
 
 
 
