@@ -54,6 +54,9 @@
    <property name="horizontalScrollBarPolicy">
     <enum>Qt::ScrollBarAsNeeded</enum>
    </property>
+   <property name="lineWrapMode">
+    <enum>QPlainTextEdit::NoWrap</enum>
+   </property>
   </widget>
   <widget class="QPlainTextEdit" name="dest_folder">
    <property name="geometry">
@@ -73,31 +76,34 @@
    <property name="verticalScrollBarPolicy">
     <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
+   <property name="lineWrapMode">
+    <enum>QPlainTextEdit::NoWrap</enum>
+   </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>90</x>
      <y>50</y>
      <width>41</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Source</string>
+    <string>Source:</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>380</x>
+     <x>390</x>
      <y>50</y>
      <width>31</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Dest</string>
+    <string>Dest:</string>
    </property>
   </widget>
   <widget class="QPushButton" name="select_src">
