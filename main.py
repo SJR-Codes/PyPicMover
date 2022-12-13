@@ -4,6 +4,7 @@
 * description
 * Created by Samu Reinikainen
 """
+import os
 
 from main_form import Ui_Form
 from view_log import Ui_Form as Log_Form
@@ -11,6 +12,18 @@ from view_log import Ui_Form as Log_Form
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
 from PyQt5.QtGui import QPixmap
+
+def getFileList(dir_path):
+    # list to store files
+    res = []
+
+    # Iterate directory
+    for path in os.listdir(dir_path):
+        # check if current path is a file
+        if os.path.isfile(os.path.join(dir_path, path)):
+            res.append(path)
+    #print(res)
+    return res
 
 class LogWindow(qtw.QWidget):
     def __init__(self, *args, **kwargs):
@@ -67,12 +80,23 @@ class MainWindow(qtw.QWidget):
 
     def selectSource(self):
         self.folderPathSource = qtw.QFileDialog.getExistingDirectory(self, 'Select Folder')
-        #qtw.QMessageBox.information(self, 'Success', str(folderPath))
         self.ui.source_folder.setPlainText(self.folderPathSource)
+        self.ui.listSrcFiles.addItems(getFileList(self.folderPathSource))
 
     def selectDest(self):
         self.folderPathDest = qtw.QFileDialog.getExistingDirectory(self, 'Select Folder')
-        self.ui.dest_folder.setPlainText(self.folderPathDest)
+        if self.folderPathDest != self.folderPathSource:
+            self.ui.dest_folder.setPlainText(self.folderPathDest)
+            self.ui.listDstFiles.addItems(getFileList(self.folderPathDest))
+        else:
+            qtw.QMessageBox.warning(
+                self,
+                "Same directory!",
+                "Destination is same as source!\nSelect another destination.",
+                buttons = qtw.QMessageBox.Ok,
+                defaultButton = qtw.QMessageBox.Ok,
+            )
+
 
     def valuesChanged(self):
         self.dirty = True
