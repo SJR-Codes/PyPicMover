@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\view_log.ui'
+# Form implementation generated from reading ui file '/home/samu/PyPicMover/view_log.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
