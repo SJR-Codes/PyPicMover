@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/samu/PyPicMover/main_form.ui'
+# Form implementation generated from reading ui file '.\main_form.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -41,13 +41,23 @@ class Ui_Form(object):
         self.dest_folder.setLineWrapMode(QtWidgets.QPlainTextEdit.NoWrap)
         self.dest_folder.setObjectName("dest_folder")
         self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(80, 50, 41, 14))
+        self.label_2.setGeometry(QtCore.QRect(80, 50, 50, 14))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(Form)
         self.label_3.setGeometry(QtCore.QRect(411, 50, 31, 14))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
         self.select_src = QtWidgets.QPushButton(Form)
-        self.select_src.setGeometry(QtCore.QRect(130, 48, 51, 19))
+        self.select_src.setGeometry(QtCore.QRect(140, 48, 51, 19))
         self.select_src.setObjectName("select_src")
         self.select_dst = QtWidgets.QPushButton(Form)
         self.select_dst.setGeometry(QtCore.QRect(451, 48, 51, 19))
